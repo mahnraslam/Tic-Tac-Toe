@@ -161,10 +161,7 @@ class Playing:
         if i != -1:
             return i, j
 
-        if  self.frames == 3 :
-            frame, row, col = self.checkFrames("O")
-            if frame != -1:
-                return frame, row, col
+ 
 
         return -1, -1  # Added return for consistency
 
@@ -189,11 +186,6 @@ class Playing:
         print(i,j)
         if i != -1:
             return i, j
-
-        if  self.frames == 3 :
-                frame, row, col = self.checkFrames(0)
-                if frame != -1:
-                    return frame, row, col
         return -1, -1
 
     def blockPlayerWin(self, userF, userRow, userCol):
@@ -276,23 +268,27 @@ class Playing:
     def putAutomatically(self,f1,r1,c1):
 
         for i in range(self.frames):
-            row, col = self.stopUserWinning(i)
-
-            if row != -1 and self.array[i][row][col] == 0:
-                return i, row, col
-
+            
             row, col = self.checkWinningMove(i)
             if row != -1 and self.array[i][row][col] == 0:
-
                 return i, row, col
-
+            
+            row, col = self.stopUserWinning(i)
+            if row != -1 and self.array[i][row][col] == 0:
+                return i, row, col
+       
+        if  self.frames == 3 :
+            frame, row, col = self.checkFrames("O")
+            if frame != -1:
+                return frame, row, col
+        if  self.frames == 3 :
+            frame, row, col = self.checkFrames(0)
+            if frame != -1:
+                return frame, row, col    
         frame, row, col = self.blockPlayerWin(f1,r1,c1)
-        print(frame,row,col)
         if frame != -1:
             return frame, row, col
 
         # If no strategic move is found, pick a random empty spot
-
-
-
+        return self.random()
 
