@@ -1,5 +1,5 @@
-#Tic Tac Toe Game
-##Features
+# Tic Tac Toe Game
+## Features
 - Player Vs Computer
 - Player Vs Player
 - GUI using tkinter module of python
