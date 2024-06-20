@@ -3,5 +3,5 @@
 - Player Vs Computer
 - Player Vs Player
 - GUI using tkinter module of python
-- This code can  be use for a single board or
-- 3 Boards >>> In 3 boards player or computer will also win if the particular box of each board are same.
+-  The code supports playing on either a single board or three boards.
+-  In the three-board mode, a player or the computer wins if the same box on each board contains the same mark.
